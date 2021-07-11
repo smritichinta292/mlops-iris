@@ -39,7 +39,7 @@ def test_pred_setosa():
         assert response.status_code == 200
         assert response.json() == {"flower_class": "Iris Setosa"}
 
-def test_pred_versicolor():
+def test_pred_versicolour():
     # defining a sample payload for the testcase
     payload = {
         "sepal_length": 7.0,
@@ -51,5 +51,5 @@ def test_pred_versicolor():
         response = client.post("/predict_flower", json=payload)
         # asserting the correct response is received
         assert response.status_code == 200
-        assert response.json() == {"flower_class": "Iris Versicolor"}
+        assert response.json() == {"flower_class": "Iris Versicolour"}
 
