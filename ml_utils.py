@@ -26,9 +26,9 @@ def load_model():
 
     # calculate the print the accuracy score
     acc = accuracy_score(y_test, clf.predict(X_test))
-    print(f"Model trained with accuracy: {round(acc, 3)}")
+    print(f"Model trained using GaussianNB classfier with accuracy: {round(acc, 3)}")
     acc_1 = accuracy_score(y_test,clf_1.predict(X_test))
-    print(f"Model trained with accuracy: {round(acc_1, 3)}")
+    print(f"Model trained using KNN classifier with accuracy: {round(acc_1, 3)}")
 
 
 # function to predict the flower using the model
