@@ -3,7 +3,7 @@ from fastapi import FastAPI
 from pydantic import BaseModel
 from ml_utils import load_model, predict, retrain
 from typing import List
-import datetime
+from datetime import datetime
 
 #now = datetime.now()
 
@@ -26,7 +26,7 @@ class QueryIn(BaseModel):
 # class which is returned in the response
 class QueryOut(BaseModel):
     flower_class: str
-    timestamp: datetime
+    timestamp: datetime.time
 
 # class which is expected in the payload while re-training
 class FeedbackIn(BaseModel):
