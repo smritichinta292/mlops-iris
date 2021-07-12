@@ -15,6 +15,7 @@ app = FastAPI(title="Iris Predictor", docs_url="/")
 app.add_event_handler("startup", load_model)
 
 
+
 # class which is expected in the payload
 class QueryIn(BaseModel):
     sepal_length: float
