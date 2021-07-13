@@ -22,18 +22,22 @@ def load_model():
     # do the test-train split and train the model
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)
     clf.fit(X_train, y_train)
-    clf_1.fit(X_train,y_train)
 
     # calculate the print the accuracy score
     acc = accuracy_score(y_test, clf.predict(X_test))
     print(f"Model trained using GaussianNB classfier with accuracy: {round(acc, 3)}")
     
+# function to train and load the model during startup
+def load_model_knnclass():
+    # load the dataset from the official sklearn datasets
+    X, y = datasets.load_iris(return_X_y=True)
 
+    # do the test-train split and train the model
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)
+    clf_1.fit(X_train,y_train)
     # calculate the print the accuracy score
     acc_1 = accuracy_score(y_test,clf_1.predict(X_test))
     print(f"Model trained using KNN classifier with accuracy: {round(acc_1, 3)}")
-
-
 
 
 
