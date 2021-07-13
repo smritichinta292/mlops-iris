@@ -1,7 +1,7 @@
 import uvicorn
 from fastapi import FastAPI
 from pydantic import BaseModel
-from ml_utils import load_model, predict, retrain
+from ml_utils import load_model_knnclass, predict, retrain,load_model
 from typing import List
 from datetime import datetime
 
@@ -12,7 +12,8 @@ app = FastAPI(title="Iris Predictor", docs_url="/")
 
 # calling the load_model during startup.
 # this will train the model and keep it loaded for prediction.
-app.add_event_handler("startup", load_model)
+#app.add_event_handler("startup", load_model)
+app.add_event_handler("startup", load_model_knnclass)
 
 
 

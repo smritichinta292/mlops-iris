@@ -22,17 +22,21 @@ def load_model():
     # do the test-train split and train the model
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)
     clf.fit(X_train, y_train)
-    clf_1.fit(X_train,y_train)
 
     # calculate the print the accuracy score
     acc = accuracy_score(y_test, clf.predict(X_test))
     print(f"Model trained using GaussianNB classfier with accuracy: {round(acc, 3)}")
-    
+def load_model_knnclass():
+    # load the dataset from the official sklearn datasets
+    X, y = datasets.load_iris(return_X_y=True)
+
+    # do the test-train split and train the model
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)
+    clf_1.fit(X_train, y_train)
 
     # calculate the print the accuracy score
-    acc_1 = accuracy_score(y_test,clf_1.predict(X_test))
-    print(f"Model trained using KNN classifier with accuracy: {round(acc_1, 3)}")
-
+    acc_1 = accuracy_score(y_test, clf_1.predict(X_test))
+    print(f"Model trained using Knn classfier with accuracy: {round(acc_1, 3)}")
 
 
 
@@ -40,10 +44,12 @@ def load_model():
 # function to predict the flower using the model
 def predict(query_data):
     x = list(query_data.dict().values())
-    prediction = clf.predict([x])[0]
-    print(f"Model prediction: {classes[prediction]}")
-    return classes[prediction]
-    prediction_1=clf_1.predict([x][0])
+    #prediction = clf.predict([x])[0]
+    #print(f"Model prediction: {classes[prediction]}")
+    #return classes[prediction]
+    #Observation:-Knn Classifer gave better accuracy than the other classifier--->Predicting using Knn classfier
+
+    prediction_1=clf_1.predict([x])[0]
     print(f"Model prediction: {classes[prediction_1]}")
     return classes[prediction_1]
 
